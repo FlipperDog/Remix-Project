@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+    Notes:
+        Scripts and CSS styling are still internal. This is a very rudimentary webpage.
+        While I wished to generate audio demos on the fly, this was not possible under my time constraints.
+        Generative AI was used to identify a variety of CSS tags and find some HTML syntax errors.
+        All other HTML was manually written.
+        Mobile scaling is untested.
+        Unless explicitly noted otherwise, I created all images and audio.
+-->
+<html>
+    <head>
+        <title>Remix Project</title>
+        <style>
+            html {
+                font-family: Cambria, Georgia, serif;
+                background-color: #bbb;
+                color: #333;
+                line-height: 1.6;
+            }
+            audio {
+                border-radius: 6px;
+            }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            a {
+                color: #259;
+            }
+            a:visited {
+                color: #259;
+            }
+            a:active {
+                color: #3ce;
+            }
+            li {
+                margin-top: 25px;
+            }
+            hr {
+                height: 3px;
+                background: #333;
+                border: none;
+            }
+            .river {
+                max-width: 70ch;
+                margin: 0 auto;
+                background-color: #ddd;
+                box-shadow: 0 0 0 50px #ddd;
+            }
+            .horiz {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+            }
+            .figure {
+                margin-top: 5px;
+                margin-bottom: 8px;
+                text-align: center;
+                font-weight: bold;
+                font-style: italic;
+                color: #272;
+            }
+            .section {
+                background: #aaa;
+                height: 2px;
+                border: none;
+            }
+            .end {
+                margin-top: 15px;
+                background: #777;
+                height: 2px;
+                border: none;
+                width: 62%
+            }
+        </style>
+    </head>
+    <body>
+        <div class="river">
+            <div style="text-align: center;">
+                <h1>Tonal Dissonance and Consonance</h1>
+                <h3>Michael Gibson<br>Feb. 22, 2026</h3>
+            </div>
+            <hr>
+            <h3 style="text-align:center;"><i>What makes some tones sound better than others?</i></h3>
+            <p>&emsp; People have struggled with this question since the days of Pythagoreas and before. Some combinations of musical notes raise us up to emotional heights, and others drive us down into terror and despair. Music theorists have spent extensive time documenting <i>which</i> combinations work, but many do not understand why. Pleasant, harmonious combinations of tones are referred to as <b>consonant</b>, while distressing tones are called <b>dissonant</b>.</p>
+            <div class="horiz">
+                <div>
+                    <audio controls src="resources/consonance0.mp3"></audio>
+                    <p class="figure">Examples of Consonant Chords</p>
+                </div>
+                <div>
+                    <audio controls src="resources/dissonance0.mp3"></audio>
+                    <p class="figure">Examples of Dissonant Chords</p>
+                </div>
+            </div>
+            <p>&emsp; There is no <i>completely</i> objective measurement of dissonance; everybody's brain is different, and we all hear sound differently. There are still quantitative measurements that apply to <i>most</i> people. A sound can be made dissonant, among other factors, by its <b>psychoacoustic roughness</b> and <b>harmonic ambiguity</b>. These properties stem from the physical structure of the ear and auditory nerves.</p>
+            <p>&emsp; Sound, generally, is the vibration of air. This pattern of vibration can be transient or steady-state. Transient sounds occur for a short time: clapping your hands, or hitting a drum. Steady-state sounds have a defined pitch, timbre, and volume: singing a vowel, for instance, or holding a note on a wind instrument. This article is only concerned with the latter category; in music, sustained tones generally create harmony, while short, transient sounds generally establish rhythm.</p>
+            <p>&emsp; At a given point in space, a steady tone is a repeating pattern of <i>compression</i> and <i>rarefaction</i>: elevated and reduced air pressure, respectively. If you were to examine the arrangement of air molecules at a point in space while a sound is playing, you might see a pattern like the one shown below (exaggerated, of course).</p>
+            <img src="resources/compression_rarefaction.png">
+            <p>&emsp; Because this wavefront is propagating through space, what you <i>hear</i> (as the sound reaches your ears) can be expressed as a function of time: in this case, the sinusoidal function shown in red. (In fact, all repeating functions can be expressed as a combination of these!) This single sinusoidal wave is comparable in tone to a tuning fork, or some flutes. Its properties are its amplitude (volume), and the frequency at which its oscillation occurs, measured in <b>Hertz</b>. Keep in mind that "Hertz", or "Hz", is a unit that means "times per second". A 440Hz tone, therefore, is one that oscillates 440 times every second.</p>
+            <div style="text-align: center;">
+                <audio controls src="resources/sines.mp3"></audio>
+                <p class="figure">Sine waves at 220, 440, and 880 Hz</p>
+            </div>
+            <hr class="section">
+            <img src="resources/cochlea.png">
+            <p class="figure">Anatomy of the Cochlea, <a href="https://community.sw.siemens.com/s/article/critical-bands-in-human-hearing" target="_blank">Siemens</a>, August 2019</p>
+            <p>&emsp; Humans hear sounds through a tiny organ in the ear called the <b>cochlea</b>: a spiral-shaped cavity in the inner ear, almost resembling a nautilus shell. This odd shape provides the ability to hear logarithmically rather than linearly. According to <a href="https://community.sw.siemens.com/s/article/critical-bands-in-human-hearing" target="_blank">Siemens</a>, if the structure were unraveled onto a line, there is more space allocated to the lower frequencies than higher ones in the human hearing range of 20 to 20,000 Hz.</p>
+            <p>&emsp; This structure generates 24 "critical bands" in human hearing. If two tones of frequencies <b>f<sub>1</sub></b> and <b>f<sub>2</sub></b> are played at the same time, Siemens notes that they are perceived in one of <a href="https://community.sw.siemens.com/s/article/sound-modulation-metrics-fluctuation-strength-and-roughness" target="_blank">three ways</a>:</p>
+            <ul>
+                <li><b>4 - 20 Hz difference:</b> The two tones fall into the same critical band, meaning that the ear cannot easily tell them apart. Mathematician John Cook, PhD <a href="https://www.johndcook.com/blog/2016/03/30/acoustic-roughness/" target="_blank">states that</a> only one frequency is heard: the <i>average</i> of the two frequencies. Additionally, the tone has a "beating" or "pulsing", which occurs at the difference of the two frequencies. For instance, if you play one tone at 220Hz and one at 224Hz, you will hear a tone at 222Hz with a 4Hz pulse (shown below).</li>
+                <li><b>20 - 350 Hz difference:</b> The two tones are still in the same critical band, but now an unpleasant "roughness" is heard. This is one of the sources of dissonance, which is strongest around a 70 Hz difference. For instance, playing 440Hz and 480Hz tones together will produce a strongly rough sound (shown below).</li>
+                <li><b>350+ Hz difference:</b> These two tones are no longer in the same critical band, and the ear can tell them apart as different pitches.</li>
+            </ul>
+            <div class="horiz">
+                <div>
+                    <audio controls src="resources/beats.mp3"></audio>
+                    <p class="figure">220 and 224 Hz, Beating</p>
+                </div>
+                <div>
+                    <audio controls src="resources/roughness.mp3"></audio>
+                    <p class="figure">440 and 480 Hz, Roughness</p>
+                </div>
+            </div>
+            <p>&emsp; Even when the tones are far apart in pitch, they can still be dissonant with one another. When producing a tone with a physical instrument, it will have more than a single sinusoidal component: it will have <i>overtones</i> at twice its frequency, three times its frequency, etc:</p>
+            <img src="resources/harmonics.png">
+            <p class="figure">Fundamental Frequency with Harmonics 2, 3, and 5</p>
+            <p>&emsp; Each of these overtones, or <b>partials</b>, in a combination of sounds interacts with every other sound. The end result of this interaction is that, as a general rule of thumb, intervals made of simple ratios tend to minimize dissonant interactions. <a href="https://aatishb.com/dissonance/" target="_blank">This page</a>, by Aatish Bhatia, is an <i>outstanding</i> demonstration of how this effect manifests in practice.</p>
+            <hr class="section">
+            <p>&emsp; Another effect can cause dissonance even in the absence of roughness. Most Western music uses a scale called 12-Equal Temperament, which has an interval known as a <i>tritone</i>. The tritone is generally considered dissonant or incomplete-sounding, even when played with simple sine waves (no partials). However, one tritone above 880Hz is 1245Hz - a 365Hz difference. The ear can tell the frequencies apart, so why is there still dissonance?</p>
+            <div style="text-align: center;">
+                <audio controls src="resources/tritones.mp3"></audio>
+                <p class="figure">Examples of Tritones</p>
+            </div>
+            <p>&emsp; According to <a href="https://31et.com/page/harmonic-ambiguity" target="_blank">Alex Zorarch</a>, the answer is <i>harmonic ambiguity</i>: the brain is unable to determine a clear fundamental frequency. While a frequency ratio of 3/2, 5/4, or 7/4 has a clear root, the tritone is the square root of 2, which is irrational. Rather than from roughness, dissonance emerges from confusion in the auditory centers of the brain. In fact, combinations of multiple notes can even imply several fundamentals at once, both strong and weak, creating extremely nuanced implications through ambiguity.</p>
+            <hr class="section">
+            <p>&emsp; Harmonic roughness and ambiguity are not the only factors that can make sounds pleasant or unpleasant, but they are prevalent in analyzing harmony. Cultural training has a strong effect, as do personal preferences in music. These kinds of <i>nearly-objective</i> metrics provide means to analyze any other culture's music from clear, mathematical principles and provide objective descriptions for musical systems that seem entirely alien. Most importantly, they can temper our bias for familiarity, by allowing us to view our own music in the absolute, unchanging light of mathematics.</p>
+            <hr><hr class="end"><br>
+        </div>
+        <script>
+            // In the interest of not blowing out your ears by default,
+            auds = document.querySelectorAll("audio");
+            for(var i = 0; i < auds.length; i ++) {
+                auds[i].volume = 0.2;
+            }
+        </script>
+    </body>
+</html>
